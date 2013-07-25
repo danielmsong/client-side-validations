@@ -3,7 +3,7 @@ $(document).ready(function() {
   var validParams = true
 
   var runAllValidations = function(password, email) {
-    validationCheck(password.length > 8, "Password length must be greater than 8 characters")
+    validationCheck(password.length > 7, "Password length must be greater than 8 characters")
     validationCheck(password.match(/[0-9]/), "Password must include on numeric value")
     validationCheck(password.match(/[A-Z]/), "Password must include one capital letter")
     validationCheck(email.match(/[A-z]+@+[A-z]+\.[A-z]+/), "Not a valid email address")
@@ -22,7 +22,7 @@ $(document).ready(function() {
 
       var inputtedPassword = $('input[name="password"]').val()
       var inputtedEmail = $('input[name="email"]').val()
-      var formData = [inputtedEmail, inputtedPassword]
+      var formData = { email: inputtedEmail, password: inputtedPassword }
 
       runAllValidations(inputtedPassword, inputtedEmail)
 
